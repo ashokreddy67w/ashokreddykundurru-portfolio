@@ -1,26 +1,208 @@
 @import "tailwindcss";
 
+/* Cinematic dark. One neon accent, used sparingly. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #060606;
+  --surface: #0e0e0d;
+  --fg: #f1efe8;
+  --muted: #8d8a81;
+  --border: #22211e;
+  --accent: #c8ff3e;
+  --accent-fg: #060606;
+  --teal: #2ee6c8;
+  --code-bg: #0c0c0b;
+  --tok-kw: #c4b5fd;
+  --tok-str: #c8ff3e;
+  --tok-com: #6f6b62;
+  --tok-num: #fdba74;
+  --tok-ann: #7dd3fc;
+  color-scheme: dark;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-teal: var(--teal);
+  --color-code: var(--code-bg);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-serif: var(--font-serif);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+::selection {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Film grain over everything, very faint. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* Oversized display type. */
+.display {
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 0.88;
+  text-transform: uppercase;
+}
+.serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+
+/* Words revealed by GSAP start hidden only when JS has run (see .js on <html>). */
+.js [data-reveal-line] > span > span {
+  transform: translateY(110%);
+}
+.line-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.06em;
+}
+.line-mask > span {
+  display: inline-block;
+}
+
+.marquee {
+  animation: marquee 40s linear infinite;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.link-u {
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  transition: background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-u:hover {
+  background-size: 100% 1px;
+}
+
+.tok-kw {
+  color: var(--tok-kw);
+}
+.tok-str {
+  color: var(--tok-str);
+}
+.tok-com {
+  color: var(--tok-com);
+  font-style: italic;
+}
+.tok-num {
+  color: var(--tok-num);
+}
+.tok-ann {
+  color: var(--tok-ann);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    animation: none;
+  }
+  .js [data-reveal-line] > span > span {
+    transform: none;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* MDX article typography */
+.prose-article {
+  line-height: 1.8;
+  font-size: 1.075rem;
+}
+.prose-article h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 3rem 0 1rem;
+}
+.prose-article h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 2rem 0 0.75rem;
+}
+.prose-article p,
+.prose-article ul,
+.prose-article ol {
+  margin: 1.1rem 0;
+  color: #c9c6bd;
+}
+.prose-article ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+.prose-article ol {
+  list-style: decimal;
+  padding-left: 1.25rem;
+}
+.prose-article strong {
+  color: var(--fg);
+}
+.prose-article a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-article :not(pre) > code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+/* A pulse travelling along the concept flow diagram. */
+.flow-pulse {
+  animation: flow-pulse 3.2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+@keyframes flow-pulse {
+  from {
+    left: 0%;
+    opacity: 0;
+  }
+  10%,
+  90% {
+    opacity: 1;
+  }
+  to {
+    left: 100%;
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flow-pulse {
+    animation: none;
+    opacity: 0;
+  }
 }

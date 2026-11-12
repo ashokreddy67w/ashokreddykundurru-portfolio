@@ -1,9 +1,12 @@
 import type { NextConfig } from "next";
+import createMDX from "@next/mdx";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  // The EMAS case study lives at /emas; keep one canonical URL.
+  async redirects() {
+    return [{ source: "/projects/emas-attendance", destination: "/emas", permanent: true }];
+  },
   turbopack: {
     rules: {
       "*.css": {
@@ -14,4 +17,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default createMDX({})(nextConfig);

@@ -1,0 +1,19 @@
+A good REST API is boring in the best way: predictable URLs, honest status codes and clear boundaries in the code behind it.
+
+## Three layers, three jobs
+
+- **Controller**: speaks HTTP. Parses input, returns status codes.
+- **Service**: holds the business rules.
+- **Repository**: talks to the database.
+
+```java
+@PostMapping
+@ResponseStatus(HttpStatus.CREATED)
+public EmployeeDto create(@Valid @RequestBody CreateEmployee req) {
+    return service.create(req);
+}
+```
+
+## Status codes are part of the contract
+
+Return `201` when something is created, `204` when it's deleted, `404` when it doesn't exist and `422` when the input is invalid. Clients can then react without parsing error strings.

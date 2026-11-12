@@ -1,0 +1,15 @@
+In a multi-tenant app, one missing `WHERE company_id = ?` can show one customer another customer's data. Row-level security moves that rule into the database.
+
+## The policy
+
+```sql
+ALTER TABLE attendance ENABLE ROW LEVEL SECURITY;
+ALTER TABLE attendance FORCE ROW LEVEL SECURITY;
+
+CREATE POLICY tenant_isolation ON attendance
+  USING (company_id::text = current_setting('app.company_id', true));
+```
+
+## Setting the tenant
+
+The server sets `app.company_id` at the start of each transaction, from the authenticated user, never from client input. If it's missing, the policy matches nothing: the system **fails closed**.
