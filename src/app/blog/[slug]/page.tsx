@@ -13,7 +13,7 @@ export const dynamicParams = false;
 
 export async function generateMetadata({ params }: PageProps<"/blog/[slug]">): Promise<Metadata> {
   const p = getPost((await params).slug);
-  return p ? pageMetadata(p.title, p.summary, `/blog/${p.slug}`, "article") : {};
+  return p ? pageMetadata(p.title, p.summary, `/blog/${p.slug}`, "article", !p.sample) : {};
 }
 
 export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
@@ -26,6 +26,9 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
     "@type": "BlogPosting",
     headline: p.title,
     description: p.summary,
+    url: `${site.url}/blog/${p.slug}`,
+    mainEntityOfPage: `${site.url}/blog/${p.slug}`,
+    image: `${site.url}/opengraph-image`,
     author: { "@type": "Person", "@id": `${site.url}/#person`, name: site.name, url: site.url },
   };
 

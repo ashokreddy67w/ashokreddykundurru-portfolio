@@ -5,7 +5,7 @@ export const site = {
   title: "Ashok Reddy Kundurru | Full-Stack Developer & AI Builder",
   description:
     "Official portfolio of Ashok Reddy Kundurru, software developer, founder of EMAS Attendance, and builder of SaaS applications, AI-powered products and intelligent software solutions.",
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/+$/, ""),
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://ashokreddykundurru.com").replace(/\/+$/, ""),
   brand: "Ashok Reddy Kundurru",
   role: "Founder @ EMAS Attendance | Full-Stack Developer | AI & Machine Learning Enthusiast",
   email,

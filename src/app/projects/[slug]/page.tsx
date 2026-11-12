@@ -20,9 +20,12 @@ export function generateStaticParams() {
 }
 export const dynamicParams = false;
 
+// Search results cut descriptions near 160 characters; end on a whole word instead of mid-word.
+const clip = (s: string) => (s.length <= 160 ? s : `${s.slice(0, 157).replace(/\s+\S*$/, "")}…`);
+
 export async function generateMetadata({ params }: PageProps<"/projects/[slug]">): Promise<Metadata> {
   const p = getProject((await params).slug);
-  return p ? pageMetadata(p.name, `${p.oneLine}. ${p.intro}`.slice(0, 160), `/projects/${p.slug}`, "website") : {};
+  return p ? pageMetadata(p.name, clip(`${p.oneLine}. ${p.intro}`), `/projects/${p.slug}`, "website") : {};
 }
 
 const stateLabel: Record<Plan["roadmap"][number]["state"], string> = { "in-progress": "In progress", next: "Next", later: "Later" };

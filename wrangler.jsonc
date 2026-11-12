@@ -4,7 +4,10 @@
   "name": "ashokreddykundurru-portfolio",
   "compatibility_date": "2026-11-01",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
-  "routes": [{ "pattern": "ashokreddykundurru.com", "custom_domain": true }],
+  "routes": [
+    { "pattern": "ashokreddykundurru.com", "custom_domain": true },
+    { "pattern": "www.ashokreddykundurru.com", "custom_domain": true },
+  ],
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS",
