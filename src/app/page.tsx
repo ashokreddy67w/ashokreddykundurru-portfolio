@@ -49,8 +49,8 @@ export default function Home() {
           <div className="border-border text-muted mt-12 grid gap-6 border-t pt-6 font-mono text-xs tracking-[0.15em] uppercase sm:grid-cols-4">
             <h1 className="text-fg">Ashok Reddy Kundurru</h1>
             <p>Founder, EMAS Attendance</p>
-            <p>Freelance Full-Stack Developer</p>
-            <a href="#intro" className="hover:text-fg flex items-center gap-2 sm:justify-self-end">
+            <p>Freelance Full-Stack Developer · AI Builder</p>
+            <a href="#intro" className="hover:text-fg -my-3 flex items-center gap-2 py-3 sm:justify-self-end">
               Scroll <span className="inline-block animate-bounce motion-reduce:animate-none">↓</span>
             </a>
           </div>
@@ -263,7 +263,7 @@ export default function Home() {
               Small things, <span className="serif text-accent">built to learn.</span>
             </h2>
           </div>
-          <ul className="space-y-16 lg:col-span-8">
+          <ul className="min-w-0 space-y-16 lg:col-span-8">
             <li>
               <h3 className="text-muted font-mono text-xs tracking-[0.15em] uppercase">Commit field</h3>
               <p className="text-muted mt-3 mb-6 max-w-xl text-lg">Every square is a day. Pulled straight from my local git history by a small shell script.</p>

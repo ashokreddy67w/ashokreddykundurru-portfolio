@@ -36,7 +36,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
     <article>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Container className="pt-36 pb-16 sm:pt-44">
-        <Link href="/blog" className="link-u text-muted hover:text-fg font-mono text-xs tracking-[0.15em] uppercase">
+        <Link href="/blog" className="link-u text-muted hover:text-fg -my-2 inline-block py-2 font-mono text-xs tracking-[0.15em] uppercase">
           ← All notes
         </Link>
         <p className="text-accent mt-12 font-mono text-xs tracking-[0.15em] uppercase">{p.category}</p>

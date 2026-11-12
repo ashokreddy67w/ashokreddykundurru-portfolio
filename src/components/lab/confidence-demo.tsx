@@ -27,7 +27,7 @@ export function ConfidenceDemo() {
         max={100}
         value={v}
         onChange={(e) => set(+e.target.value)}
-        className="mt-3 w-full accent-[var(--accent)]"
+        className="mt-3 h-6 w-full accent-[var(--accent)]"
         aria-describedby={`${label}-hint`}
       />
       <span id={`${label}-hint`} className="text-muted mt-1 block text-xs">

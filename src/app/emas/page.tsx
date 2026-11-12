@@ -59,7 +59,7 @@ export default function EmasPage() {
           <Label>Founder &amp; product builder · {p.when}</Label>
           <div className="mt-10 flex flex-wrap items-end gap-x-10 gap-y-6">
             <Image src="/shots/emas-icon.png" alt="EMAS app icon" width={140} height={140} priority className="rounded-[2rem]" />
-            <RevealText as="h1" onLoad text="EMAS" className="display text-[28vw] leading-[0.8] sm:text-[18rem]" />
+            <RevealText as="h1" onLoad text="EMAS" className="display text-[28vw] leading-[0.8] lg:text-[18rem]" />
           </div>
           <p className="serif text-accent mt-4 text-5xl sm:ml-[30%] sm:text-7xl">Attendance</p>
           <p className="text-muted mt-14 max-w-2xl text-xl leading-relaxed sm:ml-[30%]">{p.intro}</p>

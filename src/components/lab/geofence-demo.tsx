@@ -29,7 +29,7 @@ export function GeofenceDemo() {
       <span className="text-muted flex justify-between">
         {label} <span className="text-fg font-mono">{v} m</span>
       </span>
-      <input type="range" min={min} max={max} value={v} onChange={(e) => set(+e.target.value)} className="mt-2 w-full accent-[var(--accent)]" />
+      <input type="range" min={min} max={max} value={v} onChange={(e) => set(+e.target.value)} className="mt-2 h-6 w-full accent-[var(--accent)]" />
     </label>
   );
 
