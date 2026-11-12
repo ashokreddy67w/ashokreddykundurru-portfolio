@@ -46,6 +46,8 @@ const personJsonLd = {
   url: site.url,
   jobTitle: site.role,
   email: `mailto:${site.email}`,
+  description: "Founder of EMAS Attendance, Full-Stack Developer and AI Builder working on SaaS products, backend systems and AI-powered solutions.",
+  worksFor: { "@type": "Organization", name: "EMAS Attendance", url: "https://emasattendance.com/", founder: { "@id": `${site.url}/#person` } },
   sameAs: socials.map((s) => s.href),
 };
 

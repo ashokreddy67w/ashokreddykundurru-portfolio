@@ -57,6 +57,7 @@ export default function AboutPage() {
         <div className="max-w-2xl space-y-6">
           <p>
             I&apos;m the founder of <TextLink href="/emas">EMAS Attendance</TextLink>, where I&apos;m developing an employee management and attendance platform.
+            My <TextLink href="https://emasattendance.com/founder">founder page</TextLink> is on the EMAS site.
           </p>
           <p>Alongside product development, I work on freelance website development, SaaS applications, backend systems and AI-powered applications.</p>
           <p>

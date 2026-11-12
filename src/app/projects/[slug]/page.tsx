@@ -123,9 +123,9 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
   return (
     <>
       <Container className="pt-36 pb-12 sm:pt-44">
-        <nav aria-label="Breadcrumb" className="text-muted mb-8 flex gap-3 text-sm">
-          <Link href="/" className="link-u">Home</Link><span aria-hidden>/</span>
-          <Link href="/projects" className="link-u">Projects</Link><span aria-hidden>/</span>
+        <nav aria-label="Breadcrumb" className="text-muted mb-8 flex items-center gap-3 text-sm">
+          <Link href="/" className="link-u -my-2 py-2">Home</Link><span aria-hidden>/</span>
+          <Link href="/projects" className="link-u -my-2 py-2">Projects</Link><span aria-hidden>/</span>
           <span aria-current="page">{p.name}</span>
         </nav>
         {p.status && (

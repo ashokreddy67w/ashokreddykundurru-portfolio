@@ -94,7 +94,7 @@ body::after {
 }
 
 .link-u {
-  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat content-box;
   transition: background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .link-u:hover {

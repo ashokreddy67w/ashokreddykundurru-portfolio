@@ -14,7 +14,7 @@ export function Footer() {
           </p>
         </Link>
         <div className="border-border mt-16 flex flex-col gap-8 border-t pt-10 sm:flex-row sm:items-center sm:justify-between">
-          <a href={`mailto:${site.email}`} className="link-u hover:text-accent focus-visible:text-accent text-lg break-all sm:text-xl">
+          <a href={`mailto:${site.email}`} className="link-u hover:text-accent focus-visible:text-accent text-base break-all min-[360px]:text-lg sm:text-xl">
             {site.email}
           </a>
           <SocialRow />
@@ -23,10 +23,10 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {site.name}. Designed and built by me.
           </p>
-          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+          <ul className="-my-2 flex flex-wrap gap-x-6">
             {nav.map((n) => (
               <li key={n.href}>
-                <Link href={n.href} className="link-u hover:text-fg">
+                <Link href={n.href} className="link-u hover:text-fg inline-block py-2">
                   {n.label}
                 </Link>
               </li>

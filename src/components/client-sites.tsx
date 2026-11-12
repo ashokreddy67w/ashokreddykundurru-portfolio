@@ -8,7 +8,7 @@ export function ClientSites({ limit }: { limit?: number }) {
   return (
     <ul className="grid gap-x-10 gap-y-20 md:grid-cols-2">
       {sites.map((s, i) => (
-        <li key={s.href} className={i % 2 === 1 ? "md:mt-32" : ""}>
+        <li key={s.href} className={`min-w-0 ${i % 2 === 1 ? "md:mt-32" : ""}`}>
           <FadeIn>
             <a href={s.href} target="_blank" rel="noopener noreferrer" className="group block" data-cursor="Visit">
               <BrowserFrame
@@ -19,8 +19,8 @@ export function ClientSites({ limit }: { limit?: number }) {
                 label={s.href.replace(/^https:\/\/(www\.)?/, "").replace(/\/$/, "")}
                 sizes="(min-width: 768px) 45vw, 100vw"
               />
-              <div className="mt-6 flex items-start justify-between gap-6">
-                <div>
+              <div className="mt-6 flex items-start justify-between gap-4 sm:gap-6">
+                <div className="min-w-0 break-words">
                   <p className="text-muted font-mono text-[11px] tracking-[0.15em] uppercase">
                     {s.kind} · {s.place}
                   </p>
