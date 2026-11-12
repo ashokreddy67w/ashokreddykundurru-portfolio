@@ -11,6 +11,7 @@
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS",
+    "html_handling": "none",
   },
   "services": [
     {
