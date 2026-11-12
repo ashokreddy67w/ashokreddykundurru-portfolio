@@ -25,7 +25,7 @@ const clip = (s: string) => (s.length <= 160 ? s : `${s.slice(0, 157).replace(/\
 
 export async function generateMetadata({ params }: PageProps<"/projects/[slug]">): Promise<Metadata> {
   const p = getProject((await params).slug);
-  return p ? pageMetadata(p.name, clip(`${p.oneLine}. ${p.intro}`), `/projects/${p.slug}`, "website") : {};
+  return p ? pageMetadata(`${p.name} ${p.status ? "— Project Overview" : "— Case Study"}`, clip(`${p.status ? "Planned project" : "Development case study"} by Ashok Reddy Kundurru: ${p.oneLine}. ${p.intro}`), `/projects/${p.slug}`, "website") : {};
 }
 
 const stateLabel: Record<Plan["roadmap"][number]["state"], string> = { "in-progress": "In progress", next: "Next", later: "Later" };
@@ -123,6 +123,11 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
   return (
     <>
       <Container className="pt-36 pb-12 sm:pt-44">
+        <nav aria-label="Breadcrumb" className="text-muted mb-8 flex gap-3 text-sm">
+          <Link href="/" className="link-u">Home</Link><span aria-hidden>/</span>
+          <Link href="/projects" className="link-u">Projects</Link><span aria-hidden>/</span>
+          <span aria-current="page">{p.name}</span>
+        </nav>
         {p.status && (
           <div className="mb-8 flex flex-wrap items-center gap-3">
             <ComingSoonBadge />

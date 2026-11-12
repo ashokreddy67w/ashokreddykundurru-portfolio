@@ -37,12 +37,28 @@ export function HeroScene({ className = "" }: { className?: string }) {
   useEffect(() => {
     let cleanup = () => {};
     let cancelled = false;
-    // three.js is loaded after the page is interactive, so it never blocks the first paint.
-    import("three").then((THREE) => {
-      if (!cancelled) cleanup = start(THREE, mount.current!);
-    });
+    let idle: number | undefined;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const load = () => {
+      if (cancelled) return;
+      void import("three").then((THREE) => {
+        if (!cancelled && mount.current) cleanup = start(THREE, mount.current);
+      }).catch(() => {}); // Decorative scene: content remains usable if loading fails.
+    };
+    const schedule = () => {
+      timer = setTimeout(() => {
+        if ("requestIdleCallback" in window) idle = window.requestIdleCallback(load);
+        else load();
+      }, 1500);
+    };
+    // Wait for page resources and an idle period before loading decorative WebGL.
+    if (document.readyState === "complete") schedule();
+    else window.addEventListener("load", schedule, { once: true });
     return () => {
       cancelled = true;
+      window.removeEventListener("load", schedule);
+      clearTimeout(timer);
+      if (idle !== undefined) window.cancelIdleCallback(idle);
       cleanup();
     };
   }, []);
@@ -65,7 +81,7 @@ function start(THREE: typeof import("three"), el: HTMLDivElement) {
   const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
   camera.position.z = 4.2;
 
-  const geometry = new THREE.IcosahedronGeometry(1.3, 48);
+  const geometry = new THREE.IcosahedronGeometry(1.3, matchMedia("(max-width: 640px)").matches ? 24 : 48);
   const uniforms = { uTime: { value: 0 }, uMouse: { value: new THREE.Vector2() } };
   const material = new THREE.ShaderMaterial({
     vertexShader: vertex,

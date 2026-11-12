@@ -19,7 +19,8 @@ export default function OgImage() {
       }}
     >
       <div style={{ fontSize: 22, letterSpacing: 6, color: "#8d8a81" }}>FULL-STACK DEVELOPMENT · AI · SAAS</div>
-      <div style={{ fontSize: 96, fontWeight: 700, lineHeight: 0.92, letterSpacing: -4, display: "flex", flexDirection: "column" }}>
+      <div style={{ fontSize: 42, color: "#f1efe8" }}>Ashok Reddy Kundurru · EMAS Founder</div>
+      <div style={{ fontSize: 76, fontWeight: 700, lineHeight: 0.98, letterSpacing: -3, display: "flex", flexDirection: "column" }}>
         <span>BUILDING THE FUTURE,</span>
         <span style={{ color: "#c8ff3e" }}>ONE PRODUCT AT A TIME.</span>
       </div>

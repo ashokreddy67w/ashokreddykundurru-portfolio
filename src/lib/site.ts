@@ -2,7 +2,7 @@ import { email } from "@/lib/social";
 
 export const site = {
   name: "Ashok Reddy Kundurru",
-  title: "Ashok Reddy Kundurru | Full-Stack Developer & AI Builder",
+  title: "Ashok Reddy Kundurru | Developer & EMAS Founder",
   description:
     "Official portfolio of Ashok Reddy Kundurru, software developer, founder of EMAS Attendance, and builder of SaaS applications, AI-powered products and intelligent software solutions.",
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://ashokreddykundurru.com").replace(/\/+$/, ""),

@@ -39,7 +39,7 @@ export default function Home() {
         <div className="from-bg via-bg/40 pointer-events-none absolute inset-0 -z-10 bg-gradient-to-t to-transparent" aria-hidden />
         <Container>
           <RevealText
-            as="h1"
+            as="p"
             onLoad
             delay={0.2}
             accent={["future", "one", "product"]}
@@ -47,7 +47,7 @@ export default function Home() {
             className="display max-w-[16ch] text-[15vw] sm:text-[10.5vw] lg:text-[9.5rem]"
           />
           <div className="border-border text-muted mt-12 grid gap-6 border-t pt-6 font-mono text-xs tracking-[0.15em] uppercase sm:grid-cols-4">
-            <p className="text-fg">Ashok Reddy Kundurru</p>
+            <h1 className="text-fg">Ashok Reddy Kundurru</h1>
             <p>Founder, EMAS Attendance</p>
             <p>Freelance Full-Stack Developer</p>
             <a href="#intro" className="hover:text-fg flex items-center gap-2 sm:justify-self-end">
@@ -80,7 +80,8 @@ export default function Home() {
                 into functional, well-designed digital products. My work spans business websites, SaaS platforms like{" "}
                 <TextLink href="/projects/panditdesk">PanditDesk</TextLink>,{" "}
                 <TextLink href="/projects/qr-restaurant-ordering">QR-based restaurant ordering systems</TextLink>, backend applications, and AI-powered
-                solutions. I&apos;m particularly interested in building AI systems that communicate uncertainty instead of making unsupported guesses.
+                solutions. I&apos;m particularly interested in building AI systems that communicate uncertainty instead of making unsupported guesses.{" "}
+                <TextLink href="/about">More about Ashok Reddy Kundurru</TextLink>.
               </p>
             </FadeIn>
           </div>

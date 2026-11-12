@@ -73,10 +73,7 @@ body::after {
   text-transform: none;
 }
 
-/* Words revealed by GSAP start hidden only when JS has run (see .js on <html>). */
-.js [data-reveal-line] > span > span {
-  transform: translateY(110%);
-}
+/* Text remains visible if animation JavaScript is delayed or unavailable. */
 .line-mask {
   display: inline-block;
   overflow: hidden;
@@ -124,9 +121,6 @@ body::after {
 @media (prefers-reduced-motion: reduce) {
   .marquee {
     animation: none;
-  }
-  .js [data-reveal-line] > span > span {
-    transform: none;
   }
   *,
   *::before,

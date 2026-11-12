@@ -10,8 +10,8 @@ import { ProjectActions } from "@/components/project-actions";
 import { getProject } from "@/lib/projects";
 
 export const metadata = pageMetadata(
-  "EMAS Attendance",
-  "EMAS Attendance, the attendance and employee management product I'm building. What works, how it's built, and what's next.",
+  "EMAS Attendance — Founder Case Study",
+  "Ashok Reddy Kundurru's founder case study of EMAS Attendance: an employee management product, its architecture, working features and development plans.",
   "/emas",
 );
 

@@ -38,9 +38,6 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = { themeColor: "#060606" };
 
-// Marks JS as available before paint, so text that GSAP reveals can start hidden without a flash.
-const jsScript = `document.documentElement.classList.add("js")`;
-
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -67,7 +64,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${serif.variable} h-full antialiased`} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: jsScript }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([personJsonLd, websiteJsonLd]).replace(/</g, "\\u003c") }} />
       </head>
       <body className="flex min-h-full flex-col font-sans">

@@ -28,7 +28,7 @@ export function RevealText({
   useEffect(() => {
     const words = ref.current!.querySelectorAll("[data-word]");
     // y: 0 clears the offset GSAP reads from the CSS start state, so only yPercent animates.
-    if (reduced()) return void gsap.set(words, { y: 0, yPercent: 0 });
+    if (reduced() || onLoad) return;
     const ctx = gsap.context(() => {
       gsap.fromTo(
         words,
@@ -47,7 +47,8 @@ export function RevealText({
   }, [delay, onLoad]);
 
   return (
-    <Tag ref={ref as never} className={className} aria-label={text} data-reveal-line>
+    <Tag ref={ref as never} className={className} data-reveal-line>
+      <span className="sr-only">{text}</span>
       {text.split(" ").map((w, i) => (
         <span key={i} className="line-mask" aria-hidden>
           <span data-word className={accent.includes(w.replace(/[.,]/g, "")) ? "serif text-accent" : undefined}>
