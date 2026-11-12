@@ -43,3 +43,8 @@ next-env.d.ts
 
 # graphify (generated knowledge graph)
 graphify-out/
+
+# cloudflare / opennext
+.open-next/
+.wrangler/
+.dev.vars*

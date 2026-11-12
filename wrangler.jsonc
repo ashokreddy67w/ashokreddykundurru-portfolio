@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "main": ".open-next/worker.js",
+  "name": "ashokreddykundurru-portfolio",
+  "compatibility_date": "2026-11-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS",
+  },
+  "services": [
+    {
+      // Self-reference service binding, the service name must match the worker name
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "ashokreddykundurru-portfolio",
+    },
+  ],
+  "images": {
+    // Keeps next/image optimization working on Workers
+    "binding": "IMAGES",
+  },
+}
