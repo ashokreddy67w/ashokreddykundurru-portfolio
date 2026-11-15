@@ -99,7 +99,7 @@ export function reply(question: string): Reply {
     case "emas":
       return projectReply("emas-attendance", "It's live at emasattendance.com.");
     case "resolution":
-      return projectReply("ai-support-resolution-agent");
+      return projectReply("ai-support-agent");
     case "qr":
       return projectReply("qr-restaurant-ordering");
     case "ai-agent":
