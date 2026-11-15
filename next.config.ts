@@ -19,6 +19,8 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       { source: "/projects/emas-attendance", destination: "/emas", permanent: true },
+      // The planned resolution agent became the live AI Support Agent; keep old links working.
+      { source: "/projects/ai-support-resolution-agent", destination: "/projects/ai-support-agent", permanent: true },
     ];
   },
   turbopack: {
