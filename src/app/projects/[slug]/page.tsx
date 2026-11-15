@@ -173,7 +173,16 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
       <Chapter n="01" label="Overview" title={p.intro} />
 
       <Chapter n="02" label={p.status ? "Problem statement" : "Problem solved"}>
-        <p className="text-fg max-w-2xl text-2xl leading-snug">{p.problem}</p>
+        <div className="text-fg max-w-2xl space-y-5 text-2xl leading-snug">
+          {/* blank line = new paragraph; a paragraph wrapped in ** is the bold takeaway */}
+          {p.problem.split("\n\n").map((para) =>
+            para.startsWith("**") && para.endsWith("**") ? (
+              <p key={para} className="font-semibold">{para.slice(2, -2)}</p>
+            ) : (
+              <p key={para}>{para}</p>
+            ),
+          )}
+        </div>
       </Chapter>
 
       {p.plan && <PlanSections plan={p.plan} />}

@@ -249,22 +249,23 @@ export const projects: Project[] = [
     slug: "ai-support-agent",
     name: "AI Support Agent",
     tier: "featured",
-    when: "Sep 2026",
-    oneLine: "Identifies a product from a photo, and asks for a better photo when it isn't sure",
+    when: "Sep 2026 – now",
+    oneLine: "Turn a product photo into support-ready information",
     role: "Solo build",
     commits: null,
     shots: [
       {
         src: "/shots/ai-support-agent.jpg",
-        alt: "AI Product Support Agent upload screen",
-        caption: "The agent's upload and camera screen",
-        width: 720,
-        height: 280,
+        alt: "AI Support Agent overview: the guided support screen on a laptop, with product recognition, label text extraction, guided troubleshooting, support request generation and case tracking",
+        caption: "AI Support Agent: identify, investigate, resolve",
+        width: 1672,
+        height: 941,
       },
     ],
     intro:
-      "Upload or photograph a product and the agent works out the brand, product family and exact model, but only when the evidence supports it. It checks for visible damage and tells you exactly which extra photo would help.",
-    problem: "Support chats waste time on 'which model do you have?'. A photo should be enough, as long as the system is honest about what it can't confirm.",
+      "An AI-powered assistant that identifies products, gathers visual evidence and helps customers start the support process without repeatedly answering basic product questions.",
+    problem:
+      "Support conversations often waste time asking customers, “Which model do you have?”\n\nCustomers struggle to find model numbers, read product labels, or explain exactly what they're seeing.\n\nAI Support Agent starts with a photo instead. It extracts product information, compares visual evidence, and identifies the product when confidence is sufficient. If the evidence is unclear, it asks for a better photo rather than guessing.\n\n**Less back-and-forth. Better product identification. More informed support conversations.**",
     contribution: [
       "The whole pipeline: OCR, image embeddings, matching, verification",
       "A local vector store for catalogue matching",
@@ -288,8 +289,8 @@ export const projects: Project[] = [
         body: "The local catalogue and open-world search sit behind one provider interface, so new sources plug in without touching the orchestration.",
       },
     ],
-    links: [],
-    linkNote: "Runs locally for now, there's no public deployment yet. Try the decision logic in the interactive demo below.",
+    links: [{ kind: "live", label: "Try it live", href: "https://ai-support-agent-teal.vercel.app/" }],
+    linkNote: null,
   },
   {
     slug: "smartliv-abhee",
